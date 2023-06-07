@@ -37,18 +37,18 @@ const NavBar = () => {
 
         <Link
           to={"/"}
-          aria-label="Toytopia"
-          title="Toytopia"
+          aria-label="sunrisecamp"
+          title="sunrisecamp"
           className="flex justify-center"
         >
           <img
             className="w-28 md:w-24 lg:w-44"
             src={Logo}
-            alt="toytopia logo"
+            alt="sunrisecamp logo"
           />
         </Link>
         <ul
-          className={`bg-white md:bg-cyan-50  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-4 md:space-x-10 md:flex md:static md:text-lg  absolute  md:bg-none text-slate-950 duration-300 ${
+          className={`bg-white md:bg-cyan-50  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  md:bg-none text-slate-950 duration-300 ${
             !icon ? "left-0 p-2 mt-2" : "-left-40 "
           } `}
         >
