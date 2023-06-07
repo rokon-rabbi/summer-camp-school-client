@@ -1,6 +1,23 @@
 import React from 'react';
 import Logo from "../../assets/logo.png";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
+import { FaSignInAlt } from "react-icons/fa";
+import { AuthContext } from '../../Providers/AuthProvider';
+
 const NavBar = () => {
+    const [icon, setIcon] = useState(true);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch(error => console.log(error));
+  };
     return (
         <>
             <nav className="md:flex bg-cyan-50  sticky z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
