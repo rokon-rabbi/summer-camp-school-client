@@ -1,17 +1,36 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
 import Swal from 'sweetalert2'
-import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Loginpage = () => {
-    const [disabled, setDisabled] = useState(true);
-    const { signIn } = useContext(AuthContext);
+   
+    const { signIn,googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
+                // fetch('https://bistro-boss-server-fawn.vercel.app/users', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(saveUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(() => {
+                //         navigate(from, { replace: true });
+                //     })
+            })
+    }
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -64,20 +83,19 @@ const Loginpage = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <LoadCanvasTemplate />
-                                </label>
-                                <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="type the captcha above" className="input input-bordered" />
-
-                            </div>
+                           
                             {/* TODO: make button disabled for captcha */}
                             <div className="form-control mt-6">
                                 <input disabled={false} className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
                         <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
-                        <SocialLogin></SocialLogin>
+                        <div className="divider"></div>
+            <div className="w-full text-center my-4">
+                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
+                    G
+                </button>
+            </div>
                     </div>
                 </div>
             </div>
