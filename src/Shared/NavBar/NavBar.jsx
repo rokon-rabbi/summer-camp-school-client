@@ -42,7 +42,7 @@ const NavBar = () => {
           className="flex justify-center"
         >
           <img
-            className="w-20 md:w-24 lg:w-44"
+            className="w-20 opacity-80 md:w-24 lg:w-44"
             src={Logo}
             alt="sunrisecamp logo"
           />
