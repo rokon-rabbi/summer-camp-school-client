@@ -20,7 +20,7 @@ const NavBar = () => {
   };
     return (
         <>
-            <nav className="md:flex md:bg-black md:bg-opacity-60  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
+            <nav className="md:flex md:bg-slate-950 md:bg-opacity-80 backdrop-filter backdrop-blur-xm  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
         {icon ? (
           <FontAwesomeIcon
             className="text-3xl  md:hidden inline cursor-pointer relative top-8 justify-start "
