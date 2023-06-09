@@ -64,9 +64,9 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/alltoys"
-              aria-label="Blog"
-              title="Blog"
+              to="/Instructors"
+              aria-label="Instructors"
+              title="Instructors"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
               Instructors
@@ -74,9 +74,9 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/blogs"
-              aria-label="Blog"
-              title="Blog"
+              to="/Classes"
+              aria-label="Classes"
+              title="Classes"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
               Classes
@@ -88,9 +88,9 @@ const NavBar = () => {
             
             <li className='md:pl-20 pl-0'> 
               <NavLink
-                to="/mytoy"
-                aria-label="mytoy"
-                title="MyToy"
+                to="/Dashboard"
+                aria-label="Dashboard"
+                title="Dashboard"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 Dashboard
@@ -127,7 +127,7 @@ const NavBar = () => {
           </div>
         ) : (
           <Link to={"/login"}>
-            <button className="hidden md:block  text-slate-600 border-sky-500 px-4 hover:bg-white py-1 border-2 rounded-full hover:text-sky-600 font-bold md:text-lg ">
+            <button className="hidden md:block  text-white border-sky-500 px-4 hover:bg-white py-1 border-2 rounded-full hover:text-sky-600 font-bold md:text-lg ">
               <FaSignInAlt className="inline mr-1 mb-1 font-bold" />
               login
             </button>

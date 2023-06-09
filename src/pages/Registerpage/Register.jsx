@@ -78,7 +78,7 @@ const Register = () => {
         <title>SummerCamp | Sign Up</title>
       </Helmet>
 
-     <div className=" my-28">
+     <div className=" md:mt-48 my-28">
      <div className="flex justify-center items-center  h-screen">
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -178,7 +178,7 @@ const Register = () => {
           </p>
           <div className="divider"></div>
           <div className="w-full text-center my-4">
-            <button onClick={handleGoogleSignIn} className=" hover:shadow-md">
+            <button onClick={handleGoogleSignIn} type="button" className=" hover:shadow-md">
               <img
                 src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                 alt=""

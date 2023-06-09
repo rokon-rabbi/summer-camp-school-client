@@ -64,7 +64,7 @@ const Loginpage = () => {
         <title>SummerCamp | Login</title>
       </Helmet>
 
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex md:mt-32 justify-center items-center h-screen">
         <form
           className="w-full max-w-md bg-slate-50 rounded-lg p-6 shadow"
           onSubmit={handleSubmit(onSubmit)}
@@ -135,7 +135,7 @@ const Loginpage = () => {
           </p>
           <div className="divider"></div>
           <div className="w-full text-center my-4">
-            <button onClick={handleGoogleSignIn} className=" hover:shadow-md">
+            <button onClick={handleGoogleSignIn} type="button" className=" hover:shadow-md">
               <img
                 src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                 alt=""

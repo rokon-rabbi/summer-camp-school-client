@@ -94,7 +94,7 @@ const Slider = () => {
          
           </p>
           <button className="absolute top-96 left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
-        Shop Now
+        Enroll Now
       </button>
         </SwiperSlide>
       </Swiper>
