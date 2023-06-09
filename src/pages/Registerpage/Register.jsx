@@ -82,7 +82,7 @@ const Register = () => {
      <div className="flex justify-center items-center  h-screen">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="w-full max-w-md  bg-gray-50 rounded-lg p-6 shadow"
+          className="w-full max-w-md bg-slate-50 rounded-lg p-6 shadow"
         >
           <div className="text-center lg:text-left">
             <h1 className="text-5xl text-center font-bold  mt-5 ">
