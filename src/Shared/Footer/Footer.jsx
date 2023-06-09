@@ -3,48 +3,70 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 const Footer = () => {
     return (
-        <>
-              <div className=" bg-zinc-950 md:h-100 relative h-full  ">
+      <>
+      <div className=" bg-zinc-950 md:h-100 relative h-full  ">
         <div
           className="absolute inset-0  bg-cover bg-center"
           style={{
-            backgroundImage: `url("https://assets.awwwards.com/awards/images/2019/05/illustration-web-design-2-cover.jpg")`,
-            opacity: "0.07",
+            backgroundImage: `url("https://img.freepik.com/free-vector/collection-social-media-monochromatic-doodles_79603-1753.jpg?w=740&t=st=1683022134~exp=1683022734~hmac=646b8e8a753a62db05a0ebdd6cf4cb5d55f047b8e89f4fe1ab39aae9c2ed8faf")`,
+            opacity: "0.04",
           }}
         ></div>
-        <div className="col-span-12  relative pt-10 grid  ">
-          <Link
-            to={"/"}
-            aria-label="Toytopia"
-            title="Toytopia"
-            className="flex justify-center"
-          >
-            <img
-              className="w-32 md:w-40 md:h-12"
-              src={Logo}
-              alt="toytopia logo"
-            />
-          </Link>
-        </div>
-        <div className="  relative md:h-72 text-center md:px-8 grid md:grid-cols-12 px-14 py-5 md:py-14">
-          <div className="col-span-4 p-2 md:p-0    h-32 grid">
-            <p className="text-white font-bold  md:text-3xl">Contact</p>
-            <p className="text-gray-300 text-sm">needhelp@toytopia.com</p>
-            <p className="text-gray-300 text-sm">01750035431</p>
-          </div>
-          <div className="col-span-4 p-2 md:p-0  grid   h-32">
-            <p className="text-white font-bold md:text-3xl">Address</p>
-            <p className="text-gray-300 text-sm ">
-              787 Mark View Street,
-              <br />
-              Natore,Rajshahi,
-              <br />
-              Bangladesh
+        <div className="  relative md:h-96  md:px-20 grid md:grid-cols-12 px-14 py-5 md:py-14">
+          <div className="col-span-4 grid md:justify-between ">
+            <p className="text-white font-bold text-3xl">Subscribe</p>
+            <p className=" text-gray-300 font-thin text-sm w-72">
+              Register and get notified about all the news & updates before it
+              gets too late.
             </p>
+            <div className="d-flex ">
+              <input
+                className=" shadow appearance-none bg-black  rounded  md:py-4 md:px-5 py-2 px-3 text-gray-700 leading-tight focus:outline-orange-500 focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Your email address"
+              />
+
+              <button
+                className="bg-orange-500 hover:bg-orange-700 text-white font-bold md:py-4 py-2 px-3 md:px-5 ml-1 rounded focus:outline-none focus:shadow-outline "
+                type="button"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+          <div className="col-span-2 p-2 md:p-0 grid justify-between">
+            <p className="text-white font-bold text-3xl">Explore</p>
+            <p className="text-gray-300 text-sm">Browse Recipes</p>
+            <p className="text-gray-300 text-sm">Submit a Recipe</p>
+            <p className="text-gray-300 text-sm">Our Chefs</p>
+            <p className="text-gray-300 text-sm">Latest News</p>
           </div>
 
-          <div className="col-span-4 p-2 md:p-0 h-28  grid ">
-            <p className="text-white font-bold md:text-3xl">Social</p>
+          <div className="col-span-2 p-2 md:p-0  grid justify-between">
+            <p className="text-white font-bold text-3xl">Support</p>
+            <p className="text-gray-300 text-sm">Help Desk</p>
+            <p className="text-gray-300 text-sm">Sales</p>
+            <p className="text-gray-300 text-sm">Become a Partner</p>
+            <p className="text-gray-300 text-sm">Developers</p>
+          </div>
+          <div className="col-span-2 p-2 md:p-0 h-40 grid justify-between">
+            <p className="text-white font-bold text-3xl">Contact</p>
+            <p className="text-gray-300 text-sm mt">
+              787 Mark View Street, New Town, India
+            </p>
+
+            <p className="text-gray-300 text-sm">needhelp@foodhub.com</p>
+            <p className="text-gray-300 text-sm">666 888 0000</p>
+          </div>
+        </div>
+      </div>
+      <div className=" bg-zinc-950  grid md:flex md:justify-between justify-center md:items-center md:px-20 pt-2 pb-5">
+        <p className="text-gray-300 text-sm">
+          @2023 FoodHub. All Rights Reserved
+        </p>
+        <div className=" p-2 md:p-0 h-10 mt-5 ">
+          
             <div className="flex mx-auto gap-4">
               <a href="https://twitter.com/">
                 <svg
@@ -81,14 +103,8 @@ const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
       </div>
-      <div className=" bg-zinc-950  md:px-20 pt-2 pb-5">
-        <p className="text-gray-300 text-center text-sm">
-          @2023 Sunrisecamp.com. All Rights Reserved
-        </p>
-      </div>
-        </>
+    </>
     );
 };
 
