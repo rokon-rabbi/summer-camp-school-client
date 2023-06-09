@@ -20,7 +20,7 @@ const NavBar = () => {
   };
     return (
         <>
-            <nav className="md:flex bg-cyan-50  sticky z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
+            <nav className="md:flex md:bg-black md:bg-opacity-60  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
         {icon ? (
           <FontAwesomeIcon
             className="text-3xl  md:hidden inline cursor-pointer relative top-8 justify-start "
@@ -42,13 +42,13 @@ const NavBar = () => {
           className="flex justify-center"
         >
           <img
-            className="w-28 md:w-24 lg:w-44"
+            className="w-20 md:w-24 lg:w-44"
             src={Logo}
             alt="sunrisecamp logo"
           />
         </Link>
         <ul
-          className={`bg-white md:bg-cyan-50  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  md:bg-none text-slate-950 duration-300 ${
+          className={`bg-white  md:bg-black md:bg-opacity-0  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  text-slate-950 duration-300 ${
             !icon ? "left-0 p-2 mt-2" : "-left-40 "
           } `}
         >
@@ -69,7 +69,7 @@ const NavBar = () => {
               title="Blog"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
-              All Toys
+              Instructors
             </NavLink>
           </li>
           <li>
@@ -79,30 +79,21 @@ const NavBar = () => {
               title="Blog"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
-              Blog
+              Classes
             </NavLink>
           </li>
           {
             user &&(
             <>
-            <li>
-              <NavLink
-                to="/addtoy"
-                aria-label="Addtoy"
-                title="Addtoy"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                Add a Toy
-              </NavLink>
-            </li>
-            <li>
+            
+            <li className='md:pl-20 pl-0'> 
               <NavLink
                 to="/mytoy"
                 aria-label="mytoy"
                 title="MyToy"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                My Toy
+                Dashboard
               </NavLink>
             </li>
             </>
@@ -110,6 +101,7 @@ const NavBar = () => {
           }
           
         </ul>
+       
 
         {/* <p>{user.displayName}</p> */}
         {user ? (
@@ -146,7 +138,7 @@ const NavBar = () => {
           {user ? (
             <div className="flex items-center gap-5">
               <div className="">
-                <div className=" left-72 bottom-5  absolute hover:cursor-pointer rounded-full overflow-hidden ">
+                <div className=" left-64 bottom-5  absolute hover:cursor-pointer rounded-full overflow-hidden ">
                   <img
                     className=" h-9 w-9"
                     src={user.photoURL}
@@ -156,7 +148,7 @@ const NavBar = () => {
                 </div>
                 <button
                   onClick={handleLogOut}
-                  className=" left-80  text-slate-600  hover:text-sky-600  border-sky-500 px-auto  py-auto  rounded-full  ml-auto relative md:w-100 w-20 bottom-6 font-bold text-sm md:md:text-lg    "
+                  className=" left-72  text-slate-600  hover:text-sky-600  border-sky-500 px-auto  py-auto  rounded-full  ml-auto relative md:w-100 w-20 bottom-6 font-bold text-sm md:md:text-lg    "
                 >
                   logout
                   <FaSignInAlt className="inline ml-1 font-bold" />
@@ -164,7 +156,7 @@ const NavBar = () => {
               </div>
             </div>
           ) : (
-            <Link to={"/login"} className="left-10  text-slate-600  hover:text-sky-600  border-sky-500 px-auto hover:bg-white py-auto border-2 rounded-full  ml-auto relative md:w-100 w-20 bottom-6 font-bold text-sm md:md:text-lg   p-1" >
+            <Link to={"/login"} className="left-10  text-slate-600  hover:text-sky-600  border-sky-500 px-auto hover:bg-white py-auto border-2 rounded-full  ml-auto relative md:w-100 w-20 bottom-10 font-bold text-sm md:md:text-lg   p-1" >
              
                 <FaSignInAlt className="inline mr-1 font-bold" />
                 login
