@@ -4,6 +4,7 @@ import Slider from './Slider/Slider';
 import Timer from './Timer/Timer';
 import PopularClass from './popularClass/PopularClass';
 import PopularInstructor from './popularInstructor/PopularInstructor';
+import Video from './Extrasection/Video';
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
         </p>
         <PopularInstructor></PopularInstructor>
            <Timer></Timer>
+           <Video></Video>
         </div>
     );
 };
