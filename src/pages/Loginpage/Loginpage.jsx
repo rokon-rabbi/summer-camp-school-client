@@ -44,17 +44,7 @@ const Loginpage = () => {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
       };
-      // fetch('https://bistro-boss-server-fawn.vercel.app/users', {
-      //     method: 'POST',
-      //     headers: {
-      //         'content-type': 'application/json'
-      //     },
-      //     body: JSON.stringify(saveUser)
-      // })
-      //     .then(res => res.json())
-      //     .then(() => {
-      //         navigate(from, { replace: true });
-      //     })
+    
     });
   };
 
