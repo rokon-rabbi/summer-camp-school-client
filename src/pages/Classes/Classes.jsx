@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../Hooks/useAxios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 const Classes = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -18,23 +18,55 @@ const Classes = () => {
     },
   });
   const filterData = classes.filter(item => item.status == "approved");
+
   const handleSelect = data => {
     if (user && user.email) {
-
-    }
-    else{
-        Swal.fire({
-                title: 'Please login to order the food',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Login now!'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  navigate('/login', {state: {from: location}})
-                }
-              })
+        
+      const cartCourse = {
+        cartId: data._id,
+        name:data.name,
+        image:data.image,
+        price:data.price,
+        email: user.email,
+        studentsEnrolled:data.studentsEnrolled,
+        instructor:data.instructor,
+        availableSeats:data.availableSeats,
+      };
+      console.log(cartCourse)
+      
+      fetch("http://localhost:5000/carts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartCourse),
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.insertedId) {
+            refetch(); // refetch cart to update the number of items in the cart
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Course added on the cart.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to order the food",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then(result => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
     }
   };
   return (
@@ -44,7 +76,7 @@ const Classes = () => {
       </p>
       <div className=" bg-zinc-50  md:px-36 p-14 grid  md:grid-cols-3 grid-cols-1 gap-10">
         {filterData.map((data, idx) => (
-          <div>
+          <div key={idx}>
             <div
               className={`${
                 data.availableSeats === 0 ? "bg-red-500" : "bg-white"
@@ -75,19 +107,18 @@ const Classes = () => {
                     {data.studentsEnrolled}
                   </span>
                 </button>
-               
-                  <button
-                    onClick={() => handleSelect(data)}
-                    disabled={data.availableSeats === 0}
-                    className={`${
-                      data.availableSeats === 0
-                        ? "cursor-not-allowed"
-                        : "hover:bg-blue-700"
-                    } bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
-                  >
-                    Select
-                  </button>
-              
+
+                <button
+                  onClick={() => handleSelect(data)}
+                  disabled={data.availableSeats === 0}
+                  className={`${
+                    data.availableSeats === 0
+                      ? "cursor-not-allowed"
+                      : "hover:bg-blue-700"
+                  } bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
+                >
+                  Select
+                </button>
               </div>
             </div>
           </div>
