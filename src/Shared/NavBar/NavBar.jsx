@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
+import { FaShoppingCart } from 'react-icons/fa';
 import { FaSignInAlt } from "react-icons/fa";
 // import { AuthContext } from '../../Providers/AuthProvider';
 import useAuth from '../../Hooks/useAuth';
@@ -51,7 +51,7 @@ const NavBar = () => {
           />
         </Link>
         <ul
-          className={` bg-slate-900 md:bg-opacity-0  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  text-slate-950 duration-300 ${
+          className={` bg-slate-900 md:bg-opacity-0  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 pb-16 md:space-x-10 md:flex md:static md:text-lg  absolute  text-slate-950 duration-300 ${
             !icon ? "left-0 p-2 mt-2" : "-left-40 "
           } `}
         >
@@ -85,11 +85,21 @@ const NavBar = () => {
               Classes
             </NavLink>
           </li>
+      <li className='block md:hidden'>
+      <Link className='absolute  md:-bottom-10 top-28 z-50 right-0' to="">
+                <button className="btn  gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary ">+{ 0}</div>
+                </button>
+            </Link>
+      </li>
+        
+         
           {
             user &&(
             <>
             
-            <li className='md:pl-20 pl-0'> 
+            <li className='md:pl-0 pl-0'> 
               <NavLink
                 to="/dashboard"
                 aria-label="Dashboard"
@@ -127,7 +137,15 @@ const NavBar = () => {
               logout
               <FaSignInAlt className="inline ml-1 mb-1 font-bold" />
             </button>
+           
+            <Link className='absolute hidden md:block md:-bottom-10 top-28 z-50 right-0' to="">
+                <button className="btn  gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary ">+{ 0}</div>
+                </button>
+            </Link>
           </div>
+          
         ) : (
           <Link to={"/login"}>
             <button className="hidden md:block  text-white border-sky-500 px-4 hover:bg-white py-1 border-2 rounded-full hover:text-sky-600 font-bold md:text-lg ">
