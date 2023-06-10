@@ -3,11 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../Providers/AuthProvider";
+// import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import useAuth from "../../Hooks/useAuth";
 const Loginpage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const {

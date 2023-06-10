@@ -19,7 +19,7 @@ const Video = () => {
       <img
         src="https://images.unsplash.com/photo-1472745942893-4b9f730c7668?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80"
         alt="Banner"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contaion"
       />
       <p className="absolute top-10 left-20 underline text-white font-bold">
         WATCH OUR AWESOME VIDEO!

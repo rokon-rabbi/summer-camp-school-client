@@ -4,8 +4,9 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 
 import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 // import Swal from 'sweetalert2'
-import { AuthContext } from "../../Providers/AuthProvider";
+// import { AuthContext } from "../../Providers/AuthProvider";
 const Register = () => {
   const {
     register,
@@ -14,7 +15,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
   const { createUser, updateUserProfile, googleSignIn } =
-    useContext(AuthContext);
+    useAuth();
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {

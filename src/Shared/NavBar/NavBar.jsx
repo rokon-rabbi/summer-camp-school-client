@@ -8,10 +8,13 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { FaSignInAlt } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider';
+import useAuth from '../../Hooks/useAuth';
 
 const NavBar = () => {
     const [icon, setIcon] = useState(true);
-  const { user, logOut } = useContext(AuthContext);
+    
+  // const { user, logOut } =  useContext(AuthContext);
+  const { user, logOut } =  useAuth();
 
   const handleLogOut = () => {
     logOut()
@@ -20,7 +23,7 @@ const NavBar = () => {
   };
     return (
         <>
-            <nav className="md:flex bg-slate-950 md:bg-opacity-80 backdrop-filter backdrop-blur-xm  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
+            <nav className="md:flex bg-slate-950 md:bg-opacity-80 backdrop-filter backdrop-blur-xm  md:fixed md:w-full z-50 top-0  p-4 md:px-20 md:justify-between   items-center ">
         {icon ? (
           <FontAwesomeIcon
             className="text-3xl text-white  md:hidden inline cursor-pointer relative top-8 justify-start "
