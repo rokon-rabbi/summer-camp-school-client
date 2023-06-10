@@ -16,7 +16,7 @@ const Loginpage = () => {
     formState: { errors },
   } = useForm();
   const from = location.state?.from?.pathname || "/";
- 
+
   const onSubmit = data => {
     signIn(data.email, data.password).then(result => {
       const user = result.user;
@@ -44,7 +44,17 @@ const Loginpage = () => {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
       };
-    
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      })
+        .then(res => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
     });
   };
 
@@ -94,7 +104,7 @@ const Loginpage = () => {
                 {...register("password", { required: true })}
               />
               <button
-               type="button"
+                type="button"
                 onClick={togglePasswordVisibility}
                 className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-transparent border-none focus:outline-none"
               >
@@ -125,7 +135,11 @@ const Loginpage = () => {
           </p>
           <div className="divider"></div>
           <div className="w-full text-center my-4">
-            <button onClick={handleGoogleSignIn} type="button" className=" hover:shadow-md">
+            <button
+              onClick={handleGoogleSignIn}
+              type="button"
+              className=" hover:shadow-md"
+            >
               <img
                 src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"
                 alt=""

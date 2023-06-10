@@ -31,7 +31,7 @@ const PopularClass = () => {
     // Get the top six classes
     const topSixClasses = sortedData.slice(0, 6);
     return (
-         <div className="flex flex-wrap -mx-4">
+         <div className="flex flex-wrap p-20  -mx-4">
       {topSixClasses.map((card,idx) => (
         <motion.div
           key={idx}
@@ -40,11 +40,11 @@ const PopularClass = () => {
           transition={{ duration: 0.5 }}
           className="w-full md:w-1/3 p-4"
         >
-          <div className="bg-white rounded-lg shadow-lg">
+          <div className="bg-white relative overflow-hidden rounded-lg cursor-pointer text-center shadow-lg">
             <img src={card.image} alt={card.name} className="w-full h-48 object-cover rounded-t-lg" />
             <div className="p-4">
               <h2 className="text-xl font-bold mb-2">{card.name}</h2>
-              <p className="text-gray-600">{card.studentsEnrolled}</p>
+              <p className="text-gray-600 font-semibold  "><span>students Enrolled: </span><span className=' bg-blue-100 p-2  rounded'>{card.studentsEnrolled}</span></p>
             </div>
           </div>
         </motion.div>
