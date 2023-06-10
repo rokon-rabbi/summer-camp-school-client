@@ -1,13 +1,10 @@
 import React from "react";
 import useAxios from "../../../Hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../Hooks/useAuth";
 // import axios from 'axios';
 
 import { motion } from "framer-motion";
 const PopularClass = () => {
-  // const { user, loading } = useAuth();
-  // const token = localStorage.getItem('access-token');
   const [axiosSecure] = useAxios();
   const { refetch, data: classes = [] } = useQuery({
     queryKey: ["classes"],
