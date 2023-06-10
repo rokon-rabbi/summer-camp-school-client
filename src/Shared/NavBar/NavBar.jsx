@@ -7,7 +7,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { FaSignInAlt } from "react-icons/fa";
-import { AuthContext } from '../../Providers/AuthProvider';
+// import { AuthContext } from '../../Providers/AuthProvider';
 import useAuth from '../../Hooks/useAuth';
 
 const NavBar = () => {
@@ -67,7 +67,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/Instructors"
+              to="/instructors"
               aria-label="Instructors"
               title="Instructors"
               className={({ isActive }) => (isActive ? "active" : "default")}
@@ -77,7 +77,7 @@ const NavBar = () => {
           </li>
           <li>
             <NavLink
-              to="/Classes"
+              to="/classes"
               aria-label="Classes"
               title="Classes"
               className={({ isActive }) => (isActive ? "active" : "default")}
@@ -91,7 +91,7 @@ const NavBar = () => {
             
             <li className='md:pl-20 pl-0'> 
               <NavLink
-                to="/Dashboard"
+                to="/dashboard"
                 aria-label="Dashboard"
                 title="Dashboard"
                 className={({ isActive }) => (isActive ? "active" : "default")}
