@@ -20,6 +20,9 @@ const Classes = () => {
   const filterData = classes.filter(item => item.status == "approved");
   return (
     <div>
+        <p className="md:text-5xl mb-2 p-2 bg-zinc-50 underline decoration-wavy decoration-cyan-300 text-3xl font-extrabold text-gray-900 text-center mt-14 py-10 md:mt-40">
+          Classes
+        </p>
       <div className=" bg-zinc-50  md:p-36 p-14 grid  md:grid-cols-3 grid-cols-1 gap-10">
         {filterData.map((data, idx) => (
           <div>
