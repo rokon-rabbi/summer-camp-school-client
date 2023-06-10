@@ -20,10 +20,10 @@ const NavBar = () => {
   };
     return (
         <>
-            <nav className="md:flex md:bg-slate-950 md:bg-opacity-80 backdrop-filter backdrop-blur-xm  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
+            <nav className="md:flex bg-slate-950 md:bg-opacity-80 backdrop-filter backdrop-blur-xm  md:fixed md:w-full z-50 top-0  p-6 md:px-20 md:justify-between   items-center ">
         {icon ? (
           <FontAwesomeIcon
-            className="text-3xl  md:hidden inline cursor-pointer relative top-8 justify-start "
+            className="text-3xl text-white  md:hidden inline cursor-pointer relative top-8 justify-start "
             onClick={() => setIcon(!icon)}
             icon={faBars}
           />
@@ -48,7 +48,7 @@ const NavBar = () => {
           />
         </Link>
         <ul
-          className={`bg-white  md:bg-black md:bg-opacity-0  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  text-slate-950 duration-300 ${
+          className={` bg-slate-900 md:bg-opacity-0  shadow-2xl md:shadow-none  md:border-none border z-10  rounded-r-md px-6 py-2 md:space-x-10 md:flex md:static md:text-lg  absolute  text-slate-950 duration-300 ${
             !icon ? "left-0 p-2 mt-2" : "-left-40 "
           } `}
         >
@@ -148,7 +148,7 @@ const NavBar = () => {
                 </div>
                 <button
                   onClick={handleLogOut}
-                  className=" left-72  text-slate-600  hover:text-sky-600  border-sky-500 px-auto  py-auto  rounded-full  ml-auto relative md:w-100 w-20 bottom-6 font-bold text-sm md:md:text-lg    "
+                  className=" left-72  text-white  hover:text-sky-600  border-sky-500 px-auto  py-auto  rounded-full  ml-auto relative md:w-100 w-20 bottom-6 font-bold text-sm md:md:text-lg    "
                 >
                   logout
                   <FaSignInAlt className="inline ml-1 font-bold" />
@@ -156,7 +156,7 @@ const NavBar = () => {
               </div>
             </div>
           ) : (
-            <Link to={"/login"} className="left-10  text-slate-600  hover:text-sky-600  border-sky-500 px-auto hover:bg-white py-auto border-2 rounded-full  ml-auto relative md:w-100 w-20 bottom-10 font-bold text-sm md:md:text-lg   p-1" >
+            <Link to={"/login"} className="left-10  text-white  hover:text-sky-600  border-sky-500 px-auto hover:bg-white  py-auto border-2 rounded-full  ml-auto relative md:w-100 w-20 bottom-10 font-bold text-sm md:md:text-lg   p-1" >
              
                 <FaSignInAlt className="inline mr-1 font-bold" />
                 login
