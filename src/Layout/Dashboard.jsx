@@ -28,29 +28,34 @@ const Dashboard = () => {
     roleRender = (
       <>
         <li className="border-y-2 border-sky-600 pb-2 rounded-md hover:bg-[#012f46]">
-          <NavLink to="/dashboard/adminhome">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
             <FaHome></FaHome> Admin Home
           </NavLink>
         </li>
+
         <li className="border-y-2 border-sky-600 pb-2 rounded-md hover:bg-[#012f46]">
-          <NavLink to="/dashboard/addItem">
-            {" "}
-            <FaUtensils></FaUtensils> Add an Item
+          <NavLink
+            to="/dashboard/manageclass"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
+            <FaBook></FaBook> Manage Classes
           </NavLink>
         </li>
         <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-          <NavLink to="/dashboard/manageitems">
-            <FaWallet></FaWallet> Manage Items
-          </NavLink>
-        </li>
-        <li className="border-y-2 border-sky-600 pb-2 rounded-md hover:bg-[#012f46]">
-          <NavLink to="/">
-            <FaBook></FaBook> Manage Bookings(not implemented)
-          </NavLink>
-        </li>
-        <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-          <NavLink to="/dashboard/allusers">
-            <FaUsers></FaUsers> All Users
+          <NavLink
+            to="/dashboard/manageuser"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
+            <FaUsers></FaUsers> Manage Users
           </NavLink>
         </li>
       </>
@@ -105,61 +110,41 @@ const Dashboard = () => {
       </>
     );
   } else {
-    roleRender =( <>
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <CgProfile></CgProfile> Instructor profile
-        </NavLink>
-      </li>
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard/addclass"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <AiFillFileAdd></AiFillFileAdd> Add a Class
-          
-        </NavLink>
-      </li>
+    roleRender = (
+      <>
+        <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
+            <CgProfile></CgProfile> Instructor profile
+          </NavLink>
+        </li>
+        <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
+          <NavLink
+            to="/dashboard/addclass"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
+            <AiFillFileAdd></AiFillFileAdd> Add a Class
+          </NavLink>
+        </li>
 
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard/myclass"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <SiGoogleclassroom></SiGoogleclassroom> My Classes
-        </NavLink>
-      </li>
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard/totalenrolled"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <TbSum></TbSum> Total Enrolled Students
-        </NavLink>
-      </li>
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard/feedback"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <MdFeedback></MdFeedback> Feedback
-        </NavLink>
-      </li>
-    </>)
-   
+        <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
+          <NavLink
+            to="/dashboard/myclass"
+            className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            }
+          >
+            <SiGoogleclassroom></SiGoogleclassroom> My Classes
+          </NavLink>
+        </li>
+      </>
+    );
   }
 
   return (

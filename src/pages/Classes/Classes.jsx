@@ -3,7 +3,7 @@ import useAxios from "../../Hooks/useAxios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
-import useCart from "../../Hooks/useCart";
+
 const Classes = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Classes = () => {
       return res.data;
     },
   });
-  const filterData = classes.filter(item => item.status == "approved");
+  const filterData = classes.filter(item => item.status === "approved");
 
   const handleSelect = data => {
     if (user && user.email) {

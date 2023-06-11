@@ -13,8 +13,10 @@ import MySelectedClass from "../pages/Dashboard/MySelectedClass/MySelectedClass"
 import MyEnrolledClass from "../pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/Myclass/MyClass";
-import TotalEnrolled from "../pages/Dashboard/TotalEnrolledStudents/TotalEnrolled";
+// import TotalEnrolled from "../pages/Dashboard/TotalEnrolledStudents/TotalEnrolled";
 import Feedback from "../pages/Dashboard/Feedback/Feedback";
+import ManageUser from "../pages/Dashboard/ManageUser/ManageUser";
+import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +26,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element:<Home></Home>,
+        element: <Home></Home>,
       },
       {
         path: "/instructors",
@@ -45,51 +47,41 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: '/dashboard',
-    element: <Dashboard></Dashboard>, 
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
     children: [
       {
-        path: '/dashboard',
-        element: <UserHome></UserHome>
+        path: "/dashboard",
+        element: <UserHome></UserHome>,
       },
       {
-        path: 'addclass',
-        element: <AddClass></AddClass>
+        path: "addclass",
+        element: <AddClass></AddClass>,
       },
 
       {
-        path: 'myclass', 
-        element: <MyClass></MyClass>
+        path: "myclass",
+        element: <MyClass></MyClass>,
+      },
+
+      {
+        path: "feedback",
+        element: <Feedback></Feedback>,
       },
       {
-        path: 'totalenrolled', 
-        element: <TotalEnrolled></TotalEnrolled>
+        path: "payment",
+        element: <MyEnrolledClass></MyEnrolledClass>,
+      },
+      // admin routes
+
+      {
+        path: "manageuser",
+        element: <ManageUser></ManageUser>,
       },
       {
-        path:'feedback',
-        element: <Feedback></Feedback>
+        path: "manageclass",
+        element: <ManageClass></ManageClass>,
       },
-      {
-        path:'payment',
-        element: <MyEnrolledClass></MyEnrolledClass>
-      },
-      // // admin routes
-      // {
-      //   path: 'adminhome',
-      //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-      // },
-      // {
-      //   path: 'allusers', 
-      //   element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-      // },
-      // {
-      //   path: 'addItem',
-      //   element: <AdminRoute><AddItem></AddItem></AdminRoute>
-      // },
-      // {
-      //   path: 'manageitems',
-      //   element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
-      // }
-    ]
-  }
+    ],
+  },
 ]);

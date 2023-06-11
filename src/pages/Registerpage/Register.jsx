@@ -90,7 +90,7 @@ const Register = () => {
               {...register("name", { required: true })}
               name="name"
               placeholder="Name"
-              className=" w-full shadow-md  border p-2 rounded-md focus:outline-none"
+              className=" w-full font-semibold shadow-md  border p-2 rounded-md focus:outline-none"
             />
             {errors.name && (
               <span className="text-red-600">Name is required</span>
@@ -104,7 +104,7 @@ const Register = () => {
               type="text"
               {...register("photoURL", { required: true })}
               placeholder="Photo URL"
-              className="  w-full shadow-md  border p-2 rounded-md focus:outline-none"
+              className="  w-full shadow-md font-semibold  border p-2 rounded-md focus:outline-none"
             />
             {errors.photoURL && (
               <span className="text-red-600">Photo URL is required</span>
@@ -119,7 +119,7 @@ const Register = () => {
               {...register("email", { required: true })}
               name="email"
               placeholder="email"
-              className=" w-full shadow-md  border p-2 rounded-md focus:outline-none"
+              className=" w-full shadow-md font-semibold  border p-2 rounded-md focus:outline-none"
             />
             {errors.email && (
               <span className="text-red-600">Email is required</span>
@@ -137,7 +137,7 @@ const Register = () => {
                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
               })}
               placeholder="password"
-              className=" w-full shadow-md  border p-2 rounded-md focus:outline-none"
+              className=" w-full shadow-md  font-semibold border p-2 rounded-md focus:outline-none"
             />
             {errors.password?.type === "required" && (
               <p className="text-red-600">Password is required</p>
