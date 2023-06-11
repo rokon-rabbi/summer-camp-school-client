@@ -9,6 +9,10 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { AiFillFileAdd } from "react-icons/ai";
+import { SiGoogleclassroom } from "react-icons/si";
+import { TbSum } from "react-icons/tb";
+import { MdFeedback } from "react-icons/md";
 import useCart from "../Hooks/useCart";
 import useCheckRole from "../Hooks/useCheckRole";
 // import useCart from "../hooks/useCart";
@@ -72,7 +76,7 @@ const Dashboard = () => {
             }
           >
             <FaShoppingCart></FaShoppingCart> My Selected Classes
-            <span className="badge inl bg-white font-bold badge-secondary">
+            <span className="badge inl bg-white text-slate-950 font-bold badge-secondary">
               +{cart?.length || 0}
             </span>
           </NavLink>
@@ -101,17 +105,29 @@ const Dashboard = () => {
       </>
     );
   } else {
-    <>
+    roleRender =( <>
       <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
         <NavLink
-          to="/dashboard/userhome"
+          to="/dashboard"
           className={({ isActive }) =>
             isActive ? "active-dashboard" : "default-dashboard"
           }
         >
-          <CgProfile></CgProfile> Profile
+          <CgProfile></CgProfile> Instructor profile
         </NavLink>
       </li>
+      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
+        <NavLink
+          to="/dashboard/addclass"
+          className={({ isActive }) =>
+            isActive ? "active-dashboard" : "default-dashboard"
+          }
+        >
+          <AiFillFileAdd></AiFillFileAdd> Add a Class
+          
+        </NavLink>
+      </li>
+
       <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
         <NavLink
           to="/dashboard/myclass"
@@ -119,34 +135,31 @@ const Dashboard = () => {
             isActive ? "active-dashboard" : "default-dashboard"
           }
         >
-          <FaShoppingCart></FaShoppingCart> My Selected Classes
-          <span className="badge inl bg-white font-bold badge-secondary">
-            +{cart?.length || 0}
-          </span>
-        </NavLink>
-      </li>
-
-      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
-        <NavLink
-          to="/dashboard/enrolledclass"
-          className={({ isActive }) =>
-            isActive ? "active-dashboard" : "default-dashboard"
-          }
-        >
-          <FaCalendarAlt></FaCalendarAlt> My Enrolled Classes
+          <SiGoogleclassroom></SiGoogleclassroom> My Classes
         </NavLink>
       </li>
       <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
         <NavLink
-          to="/dashboard/payment"
+          to="/dashboard/totalenrolled"
           className={({ isActive }) =>
             isActive ? "active-dashboard" : "default-dashboard"
           }
         >
-          <FaWallet></FaWallet> Payment History
+          <TbSum></TbSum> Total Enrolled Students
         </NavLink>
       </li>
-    </>;
+      <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
+        <NavLink
+          to="/dashboard/feedback"
+          className={({ isActive }) =>
+            isActive ? "active-dashboard" : "default-dashboard"
+          }
+        >
+          <MdFeedback></MdFeedback> Feedback
+        </NavLink>
+      </li>
+    </>)
+   
   }
 
   return (

@@ -13,7 +13,7 @@ import useCart from "../../Hooks/useCart";
 
 const NavBar = () => {
   const [icon, setIcon] = useState(true);
-  const [cart] = useCart();
+  const [cart,refetch] = useCart();
   // console.log(cart)
   // const { user, logOut } =  useContext(AuthContext);
   const { user, logOut } = useAuth();
@@ -88,10 +88,10 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className="block md:hidden">
-            <Link className="absolute  md:-bottom-10 top-28 z-50 right-0" to="">
+            <Link className="absolute  md:-bottom-10 top-28 z-50 right-0" to="/dashboard/myclass">
               <button className="btn  gap-2">
                 <FaShoppingCart></FaShoppingCart>
-                <div className="badge badge-secondary ">
+                <div className="badge  text-slate-950 badge-secondary ">
                   +{cart?.length || 0}
                 </div>
               </button>
@@ -140,11 +140,11 @@ const NavBar = () => {
 
             <Link
               className="absolute hidden md:block md:-bottom-10 top-28 z-50 right-0"
-              to=""
+              to="/dashboard/myclass"
             >
               <button className="btn bg-slate-900  border-none  gap-2">
                 <FaShoppingCart className="text-3xl text-[#009688]" ></FaShoppingCart>
-                <div className="badge bg-slate-200 badge-secondary ">
+                <div className="badge bg-slate-200 text-slate-950 badge-secondary ">
                   +{cart?.length || 0}
                 </div>
               </button>

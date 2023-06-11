@@ -11,6 +11,10 @@ import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import MySelectedClass from "../pages/Dashboard/MySelectedClass/MySelectedClass";
 import MyEnrolledClass from "../pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import MyClass from "../pages/Dashboard/Myclass/MyClass";
+import TotalEnrolled from "../pages/Dashboard/TotalEnrolledStudents/TotalEnrolled";
+import Feedback from "../pages/Dashboard/Feedback/Feedback";
 
 export const router = createBrowserRouter([
   {
@@ -49,12 +53,21 @@ export const router = createBrowserRouter([
         element: <UserHome></UserHome>
       },
       {
+        path: 'addclass',
+        element: <AddClass></AddClass>
+      },
+
+      {
         path: 'myclass', 
-        element: <MySelectedClass></MySelectedClass>
+        element: <MyClass></MyClass>
       },
       {
-        path:'enrolledclass',
-        element: <MyEnrolledClass></MyEnrolledClass>
+        path: 'totalenrolled', 
+        element: <TotalEnrolled></TotalEnrolled>
+      },
+      {
+        path:'feedback',
+        element: <Feedback></Feedback>
       },
       {
         path:'payment',

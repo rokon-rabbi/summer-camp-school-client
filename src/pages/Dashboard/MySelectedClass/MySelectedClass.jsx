@@ -37,6 +37,7 @@ const MySelectedClass = () => {
             <th>Name</th>
             <th>Price</th>
             <th>Available Seats</th>
+            <th>Payment</th>
             <th>Delete</th>
             <th>Payment</th>
             <th></th>
@@ -66,9 +67,14 @@ const MySelectedClass = () => {
                   {cart.price}$
                 </span>
               </td>
-              <td className="text-center">
+              <td className="text-center  rounded-md">
                 <span className="badge  font-semibold badge-ghost badge-sm">
                   {cart.availableSeats}
+                </span>
+              </td>
+              <td className="text-center">
+                <span className="badge  font-semibold badge-ghost badge-sm">
+                  {cart.paymentStatus}
                 </span>
               </td>
               <th className="text-center">

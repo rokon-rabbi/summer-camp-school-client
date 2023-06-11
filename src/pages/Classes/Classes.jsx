@@ -3,11 +3,13 @@ import useAxios from "../../Hooks/useAxios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useCart from "../../Hooks/useCart";
 const Classes = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [axiosSecure] = useAxios();
+
   const { refetch, data: classes = [] } = useQuery({
     queryKey: ["classes"],
 
@@ -31,6 +33,7 @@ const Classes = () => {
         studentsEnrolled:data.studentsEnrolled,
         instructor:data.instructor,
         availableSeats:data.availableSeats,
+        paymentStatus:"pending"
       };
       console.log(cartCourse)
       
