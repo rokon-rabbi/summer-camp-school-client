@@ -44,7 +44,7 @@ const Loginpage = () => {
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
-        role: "user"
+        role: "user",
       };
       fetch("http://localhost:5000/users", {
         method: "POST",

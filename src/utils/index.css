@@ -13,4 +13,12 @@
   .default{
     @apply font-bold tracking-wide text-white  transition-colors duration-200 hover:text-cyan-600
   }
+  .active-dashboard{
+    @apply font-bold tracking-wide bg-[#012f46] transition-colors duration-200
+  }
+  
+  .default-dashboard{
+    @apply font-bold tracking-wide bg-[#004567]  transition-colors duration-200 hover:text-cyan-600
+  }
+ 
  

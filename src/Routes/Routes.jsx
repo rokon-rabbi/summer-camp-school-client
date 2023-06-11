@@ -9,6 +9,8 @@ import Dashboard from "../Layout/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
+import MySelectedClass from "../pages/Dashboard/MySelectedClass/MySelectedClass";
+import MyEnrolledClass from "../pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
 
 export const router = createBrowserRouter([
   {
@@ -46,14 +48,18 @@ export const router = createBrowserRouter([
         path: 'userhome',
         element: <UserHome></UserHome>
       },
-      // {
-      //   path: 'mycart', 
-      //   element: <MyCart></MyCart>
-      // },
-      // {
-      //   path:'payment',
-      //   element: <Payment></Payment>
-      // },
+      {
+        path: 'myclass', 
+        element: <MySelectedClass></MySelectedClass>
+      },
+      {
+        path:'enrolledclass',
+        element: <MyEnrolledClass></MyEnrolledClass>
+      },
+      {
+        path:'payment',
+        element: <MyEnrolledClass></MyEnrolledClass>
+      },
       // // admin routes
       // {
       //   path: 'adminhome',

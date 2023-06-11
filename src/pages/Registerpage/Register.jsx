@@ -25,6 +25,7 @@ const Register = () => {
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
+        role: "user",
       };
       
     });
