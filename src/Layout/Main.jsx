@@ -9,10 +9,10 @@ const Main = () => {
   
 
   return (
-    <div>
+    <div  >
        <NavBar></NavBar>
       <div className="md:min-h-[calc(100vh-160px)]">
-        <Outlet></Outlet>
+        <Outlet ></Outlet>
       </div>
       <Footer></Footer>
     </div>

@@ -56,7 +56,7 @@ const Dashboard = () => {
       <>
         <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
           <NavLink
-            to="/dashboard/userhome"
+            to="/dashboard"
             className={({ isActive }) =>
               isActive ? "active-dashboard" : "default-dashboard"
             }
