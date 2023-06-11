@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../../Hooks/useAuth";
+
 import useAxios from "../../../Hooks/useAxios";
+import { useState } from "react";
 
 const ManageClass = () => {
-  const { user } = useAuth();
-
+ 
+  const [disableButtons, setDisableButtons] = useState([]);
+  
   const [axiosSecure] = useAxios();
 
   const { refetch, data: classes = [] } = useQuery({
@@ -17,15 +19,16 @@ const ManageClass = () => {
     },
   });
 
-
   const handleStatusUpdate = async (classItem, status) => {
-    try {
-      await axiosSecure.patch(`/classes/${classItem._id}`, { status });
-      // Update the status locally in the classes array
-      const updatedClasses = classes.map((item) =>
-        item._id === classItem._id ? { ...item, status } : item
-      );
-      setDisableButtons((prev) => [...prev, classItem._id]);
+      try {
+          await axiosSecure.patch(`/classes/${classItem._id}`, { status });
+          // Update the status locally in the classes array
+          refetch();
+
+      const updatedClasses = classes.map(item => {
+        item._id === classItem._id ? { ...item, status } : item;
+      });
+      setDisableButtons(prev => [...prev, classItem._id]);
       // You can also update the classes array directly using refetch or setState if required
     } catch (error) {
       console.error("Failed to update class status", error);
@@ -36,15 +39,16 @@ const ManageClass = () => {
       <div className="inline-block min-w-full overflow-hidden">
         <table className="table w-full whitespace-nowrap ">
           {/* head */}
-          <thead className=" overflow-hidden">
+          <thead className="  overflow-hidden">
             <tr className="bg-white">
-              <th className="py-1 px-2">Name</th>
-              <th className="py-1 px-2">Email</th>
-              <th className="py-1 px-2">Price</th>
-              <th className="py-1 px-2">Available Seats</th>
-              <th className="py-1 px-2">Status</th>
-              <th className="py-1 px-2">Approve</th>
-              <th className="py-1 px-2">Deny</th>
+              <th className="py-1 px-2 text-center">Profile</th>
+              <th className="py-1 px-2 text-center">Email</th>
+              <th className="py-1 px-2 text-center">Price</th>
+              <th className="py-1 px-2 text-center">Available Seats</th>
+              <th className="py-1 px-2 text-center">Status</th>
+              <th className="py-1 px-2 text-center">Approve</th>
+              <th className="py-1 px-2  text-center">Deny</th>
+              <th className="py-1 px-2  text-center">Feedback</th>
 
               <th></th>
             </tr>
@@ -65,7 +69,7 @@ const ManageClass = () => {
                     </div>
                     <div>
                       <div className="font-bold text-sm">{classItem.name}</div>
-                      <div className="text-xs opacity-50">
+                      <div className="text-xs font-semibold opacity-50">
                         {classItem.instructor}
                       </div>
                     </div>
@@ -93,17 +97,33 @@ const ManageClass = () => {
                 </td>
                 <td className="text-center ">
                   <button
-                    onClick={() => handleDelete(classItem)}
-                    className="btn btn-ghost bg-blue-900 btn-xs "
+                    onClick={() => handleStatusUpdate(classItem, "approved")}
+                    className={`btn btn-ghost bg-blue-900 btn-xs ${
+                      disableButtons.includes(classItem._id)
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                    }`}
+                    disabled={disableButtons.includes(classItem._id)}
                   >
                     Approve
                   </button>
                 </td>
-                <td className="text-center">
-                  <button className="btn btn-ghost bg-red-600 btn-xs">
+                <td className="">
+                  <button
+                    onClick={() => handleStatusUpdate(classItem, "denied")}
+                    className={`btn btn-ghost text-left m-0 bg-red-600 btn-xs ${
+                      disableButtons.includes(classItem._id)
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                    }`}
+                    disabled={disableButtons.includes(classItem._id)}
+                  >
                     Deny
                   </button>
-                  <button className="btn btn-ghost bg-white btn-xs">
+                  
+                </td>
+                <td>
+                <button className="btn btn-ghost bg-white btn-xs">
                     Feedback
                   </button>
                 </td>
