@@ -46,7 +46,7 @@ const Loginpage = () => {
         email: loggedInUser.email,
         role: "user",
       };
-      fetch("http://localhost:5000/users", {
+      fetch("https://summer-camp-school-server-tau.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

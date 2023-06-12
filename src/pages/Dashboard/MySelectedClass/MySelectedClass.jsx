@@ -1,6 +1,7 @@
 import React from "react";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
   const [cart, refetch] = useCart();
@@ -15,7 +16,7 @@ const MySelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${cart._id}`, {
+        fetch(`https://summer-camp-school-server-tau.vercel.app/carts/${cart._id}`, {
           method: "DELETE",
         })
           .then(res => res.json())
@@ -29,7 +30,7 @@ const MySelectedClass = () => {
     });
   };
   return (
-    <div className="overflow-x-auto md:px-44 md:py-20">
+    <div className="overflow-x-auto md:py-20">
       <table className="table ">
         {/* head */}
         <thead>
@@ -58,7 +59,7 @@ const MySelectedClass = () => {
                   </div>
                   <div>
                     <div className="font-bold">{cart.name}</div>
-                    <div className="text-sm opacity-50">{cart.instructor}</div>
+                    <div className="text-sm font-bold opacity-50">{cart.instructor}</div>
                   </div>
                 </div>
               </td>
@@ -86,7 +87,9 @@ const MySelectedClass = () => {
                 </button>
               </th>
               <th className="text-center">
+                <Link to={"/dashboard/payment"}>
                 <button className="btn btn-ghost  bg-white btn-xs">pay</button>
+                </Link>
               </th>
             </tr>
           ))}

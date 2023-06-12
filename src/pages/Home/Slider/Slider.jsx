@@ -10,6 +10,7 @@ import "./Slider.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   return (
@@ -40,9 +41,12 @@ const Slider = () => {
           <p className="absolute inset-1 text-white f  z-20 md:ml-56 md:mt-80 m-20 text-xs md:text-xl">
             Make your summer unforgotable!
           </p>
+          <Link to="/login" >
           <button className="absolute md:top-96 md:left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
         Enroll Now
       </button>
+          </Link>
+         
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -59,9 +63,11 @@ const Slider = () => {
          your friends and instructors.
          
           </p>
-          <button className="absolute top-96 left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
+          <Link to="/login" >
+          <button className="absolute md:top-96 md:left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
         Enroll Now
       </button>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -76,9 +82,11 @@ const Slider = () => {
           Its more exiciting when you will be faster then your imagination! 
          
           </p>
-          <button className="absolute top-96 left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
+          <Link to="/login" >
+          <button className="absolute md:top-96 md:left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
         Enroll Now
       </button>
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
           <img
@@ -93,9 +101,11 @@ const Slider = () => {
          Too much fun when you get your instructors great skills with you!
          
           </p>
-          <button className="absolute top-96 left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
+          <Link to="/login" >
+          <button className="absolute md:top-96 md:left-56  z-20 border border-dotted rounded-full py-2 px-4 text-white bg-blue-500 hover:bg-blue-600">
         Enroll Now
       </button>
+          </Link>
         </SwiperSlide>
       </Swiper>
     </div>

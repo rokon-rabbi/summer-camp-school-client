@@ -88,7 +88,7 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li className="block md:hidden">
-            <Link className="absolute  md:-bottom-10 top-28 z-50 right-0" to="/dashboard/myclass">
+            <Link className="absolute  md:-bottom-10 top-28 z-50 right-0" to="/dashboard/myselectedclass">
               <button className="btn  gap-2">
                 <FaShoppingCart></FaShoppingCart>
                 <div className="badge  text-slate-950 badge-secondary ">
@@ -140,7 +140,7 @@ const NavBar = () => {
 
             <Link
               className="absolute hidden md:block md:-bottom-10 top-28 z-50 right-0"
-              to="/dashboard/myclass"
+              to="/dashboard/myselectedclass"
             >
               <button className="btn bg-slate-900  border-none  gap-2">
                 <FaShoppingCart className="text-3xl text-[#009688]" ></FaShoppingCart>

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000/', 
+  baseURL: 'https://summer-camp-school-server-tau.vercel.app/', 
 });
 const useAxios = () => {
     const { logOut } = useAuth(); 

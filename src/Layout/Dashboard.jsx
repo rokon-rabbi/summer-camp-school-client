@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
   FaShoppingCart,
   FaWallet,
@@ -15,15 +15,24 @@ import { TbSum } from "react-icons/tb";
 import { MdFeedback } from "react-icons/md";
 import useCart from "../Hooks/useCart";
 import useCheckRole from "../Hooks/useCheckRole";
+import ErrorPage from "../pages/Errorpage";
+import { Helmet } from "react-helmet-async";
+import useAuth from "../Hooks/useAuth";
 // import useCart from "../hooks/useCart";
 // import useAdmin from "../hooks/useAdmin";
-
+// const navigate=useNavigate()
 const Dashboard = () => {
   const [cart] = useCart();
-
+// const {logOut}=useAuth()
   const [role, isRoleLoading] = useCheckRole();
   let roleRender;
-
+//  const handleLogout=()=>{
+//   logOut()
+//   .then()
+//   .catch(error => console.log(error));
+//   navigate("/login")
+  
+//  }
   if (role === "admin") {
     roleRender = (
       <>
@@ -75,7 +84,7 @@ const Dashboard = () => {
         </li>
         <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
           <NavLink
-            to="/dashboard/myclass"
+            to="/dashboard/myselectedclass"
             className={({ isActive }) =>
               isActive ? "active-dashboard" : "default-dashboard"
             }
@@ -109,7 +118,7 @@ const Dashboard = () => {
         </li>
       </>
     );
-  } else {
+  } else if(role==="instructor") {
     roleRender = (
       <>
         <li className="border-y-2 border-sky-600 pb-4 rounded-md hover:bg-[#012f46]">
@@ -146,9 +155,15 @@ const Dashboard = () => {
       </>
     );
   }
-
+else{
+  <ErrorPage></ErrorPage>
+}
   return (
-    <div className="drawer drawer-mobile ">
+    <>
+     <Helmet>
+        <title>SummerCamp | Dashboard</title>
+      </Helmet>
+      <div className="drawer drawer-mobile ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         <Outlet></Outlet>
@@ -170,9 +185,16 @@ const Dashboard = () => {
           <li className="border-y-2 border-sky-600 rounded-md hover:bg-[#012f46]">
             <NavLink to="/classes">Classes</NavLink>
           </li>
+          {/* <li onClick={handleLogout} className="border-y-2 border-sky-600 rounded-md hover:bg-[#012f46]">
+            <NavLink  className={({ isActive }) =>
+              isActive ? "active-dashboard" : "default-dashboard"
+            } to="">log out</NavLink>
+          </li> */}
         </ul>
       </div>
     </div>
+    </>
+   
   );
 };
 

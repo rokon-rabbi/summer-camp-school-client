@@ -4,9 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const ManageUser = () => {
   const [disableButtons, setDisableButtons] = useState([]);
-
   const [axiosSecure] = useAxios();
-
   const { refetch, data: users = [] } = useQuery({
     queryKey: ["users"],
 
@@ -89,11 +87,11 @@ const ManageUser = () => {
                   <button
                     onClick={() => handleStatusUpdate(user, "admin")}
                     className={`btn btn-ghost bg-green-700 btn-xs ${
-                      disableButtons.includes(user._id)
+                      user.role==="admin"
                         ? "opacity-50 cursor-not-allowed"
                         : ""
                     }`}
-                    disabled={disableButtons.includes(user._id)}
+                    disabled={user.role==="admin"}
                   >
                     Make Admin
                   </button>

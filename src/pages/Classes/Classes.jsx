@@ -3,9 +3,12 @@ import useAxios from "../../Hooks/useAxios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useCheckRole from "../../Hooks/useCheckRole";
+import { Helmet } from "react-helmet-async";
 
 const Classes = () => {
   const { user } = useAuth();
+  const[role, isRoleLoading]= useCheckRole();
   const navigate = useNavigate();
   const location = useLocation();
   const [axiosSecure] = useAxios();
@@ -29,7 +32,7 @@ const Classes = () => {
         name:data.name,
         image:data.image,
         price:data.price,
-        email: user.email,
+        instructorEmail: user.email,
         studentsEnrolled:data.studentsEnrolled,
         instructor:data.instructor,
         availableSeats:data.availableSeats,
@@ -37,7 +40,7 @@ const Classes = () => {
       };
       console.log(cartCourse)
       
-      fetch("http://localhost:5000/carts", {
+      fetch("https://summer-camp-school-server-tau.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -46,6 +49,7 @@ const Classes = () => {
       })
         .then(res => res.json())
         .then(data => {
+
           if (data.insertedId) {
             refetch(); // refetch cart to update the number of items in the cart
             Swal.fire({
@@ -73,7 +77,11 @@ const Classes = () => {
     }
   };
   return (
-    <div>
+    <>
+    <Helmet>
+        <title>SummerCamp | Classes</title>
+      </Helmet>
+      <div>
       <p className="md:text-5xl mb-2 p-2 bg-zinc-50 underline decoration-wavy decoration-cyan-300 text-3xl font-extrabold text-gray-900 text-center mt-14 py-10 md:mt-40">
         Classes
       </p>
@@ -113,9 +121,9 @@ const Classes = () => {
 
                 <button
                   onClick={() => handleSelect(data)}
-                  disabled={data.availableSeats === 0}
+                  disabled={data.availableSeats === 0 ||role==="admin" || role ==="instructor"}
                   className={`${
-                    data.availableSeats === 0
+                    data.availableSeats  === 0 ||role==="admin" || role ==="instructor"
                       ? "cursor-not-allowed"
                       : "hover:bg-blue-700"
                   } bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded`}
@@ -128,6 +136,8 @@ const Classes = () => {
         ))}
       </div>
     </div>
+    </>
+   
   );
 };
 

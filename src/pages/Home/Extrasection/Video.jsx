@@ -43,7 +43,7 @@ const Video = () => {
               <FaTimes />
             </div>
             <iframe
-              src="https://vod-progressive.akamaized.net/exp=1686409925~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F834%2F22%2F554173680%2F2621429332.mp4~hmac=6621b00b232e84879b9b9a0c3aa993fc6f9d08271ae158b2e8aa0b56629c3fba/vimeo-prod-skyfire-std-us/01/834/22/554173680/2621429332.mp4"
+              src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/SfgTbYmNJXjhkhi5b7/videoblocks-aerial-view-of-a-summer-camp-with-cabins-and-recreational-area-in-the-forest_spi4idcwp__ee2e21833e85886f9c5abe408e9e5473__P360.mp4"
               className="w-full h-full"
               frameBorder="0"
               title="Video"

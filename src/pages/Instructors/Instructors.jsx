@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { motion } from "framer-motion";
 import useAxios from "../../Hooks/useAxios";
+import { Helmet } from "react-helmet-async";
 const Instructors = () => {
     const [axiosSecure] = useAxios();
     const { refetch, data: users = [] } = useQuery({
@@ -18,7 +19,12 @@ const Instructors = () => {
     });
     const filterData = users.filter(item => item.role == "instructor" );
     return (
-        <div>
+
+      <>
+      <Helmet>
+        <title>SummerCamp | Instructors</title>
+      </Helmet>
+      <div>
             <p className="md:text-5xl mb-2 p-2 bg-zinc-50 underline decoration-wavy decoration-cyan-300 text-3xl font-extrabold text-gray-900 text-center mt-14 py-10 md:mt-40">
           Instructors
         </p>
@@ -55,6 +61,8 @@ const Instructors = () => {
         ))}
            </div>
         </div>
+      </>
+       
     );
 };
 

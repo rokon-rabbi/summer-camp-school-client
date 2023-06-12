@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const Timer = () => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -42,9 +43,12 @@ const Timer = () => {
       <div className="max-w-full md:flex justify-between mx-auto">
         <h2 > <span className="md:text-xl text-white  font-bold mb-4" >until first session</span >  <br /><span className="md:text-3xl text-xl  font-bold  text-white   mb-4">Don’t Miss the First Day
 of <br/> Summer Camp!</span></h2>
+<Link to="/login">
 <button className="rounded-xl bg-blue-700 font-bold text-white px-4 py-2 h-12 mt-10 transition-colors duration-300 hover:bg-white hover:text-blue-500">
       Enroll Now
     </button>
+</Link>
+
         
         <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
       <div className="flex  text-white flex-col p-2 bg-blue-300 rounded-box ">

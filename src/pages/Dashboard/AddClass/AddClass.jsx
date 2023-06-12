@@ -24,7 +24,7 @@ const AddClass = () => {
     e.preventDefault();
 
     // Sending data to the server using Fetch API
-    fetch("http://localhost:5000/classes", {
+    fetch("https://summer-camp-school-server-tau.vercel.app/classes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
