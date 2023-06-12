@@ -18,7 +18,9 @@ const CheckoutForm = ({ cart, price }) => {
 
   useEffect(() => {
     if (price > 0) {
-      axiosSecure.post("/create-payment-intent", { price }).then(res => {
+      console.log(price);
+      axiosSecure.post("/create-payment-intent",{  price }).then(res => {
+        console.log("here");
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
@@ -112,7 +114,8 @@ const CheckoutForm = ({ cart, price }) => {
           }}
         />
         <button
-          className="btn btn-primary btn-sm mt-4"
+          className="btn btn-primary cursor-pointer btn-sm mt-4"
+          onSubmit={handleSubmit}
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >

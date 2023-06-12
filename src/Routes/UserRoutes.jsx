@@ -3,7 +3,7 @@ import { Navigate, useLocation } from "react-router";
 import useAuth from "../Hooks/useAuth";
 import useCheckRole from "../Hooks/useCheckRole";
 
-const InstructorRouts = ({ children }) => {
+const UserRoutes = ({ children }) => {
   const { user, loading } = useAuth();
   const [role, isRoleLoading] = useCheckRole();
   const location = useLocation();
@@ -12,10 +12,10 @@ const InstructorRouts = ({ children }) => {
     return <progress className="progress w-56"></progress>;
   }
 
-  if (user && role === "instructor") {
+  if (user && role==="user") {
     return children;
   }
   return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 
-export default InstructorRouts;
+export default UserRoutes;

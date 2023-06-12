@@ -18,7 +18,12 @@ import Feedback from "../pages/Dashboard/Feedback/Feedback";
 import ManageUser from "../pages/Dashboard/ManageUser/ManageUser";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import PrivateRoute from "./PrivateRoutes";
+import AdminRoutes from "./AdminRoutes";
+// import PrivateRoute from "./PrivateRoutes";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import UserRoutes from "./UserRoutes";
+import InstructorRoute from "./InstructorRoute";
+// import InstructorRouts from "./InstructorRouts";
 
 export const router = createBrowserRouter([
   {
@@ -64,24 +69,23 @@ export const router = createBrowserRouter([
             <UserHome></UserHome>
           </PrivateRoute>
         ),
-       
       },
       {
         path: "addclass",
-        element: <AddClass></AddClass>,
+        element: <InstructorRoute><AddClass></AddClass></InstructorRoute>,
       },
       {
         path: "payment",
-        element: <Payment></Payment>,
+        element: <UserRoutes> <Payment></Payment></UserRoutes>,
       },
 
       {
         path: "myclass",
-        element: <MyClass></MyClass>,
+        element:<InstructorRoute> <MyClass></MyClass></InstructorRoute>,
       },
       {
         path: "myselectedclass",
-        element: <MySelectedClass></MySelectedClass>,
+        element: <UserRoutes><MySelectedClass></MySelectedClass></UserRoutes>,
       },
 
       {
@@ -96,11 +100,15 @@ export const router = createBrowserRouter([
 
       {
         path: "manageuser",
-        element: <ManageUser></ManageUser>,
+        element: (
+          <AdminRoutes>
+            <ManageUser></ManageUser>
+          </AdminRoutes>
+        ),
       },
       {
         path: "manageclass",
-        element: <ManageClass></ManageClass>,
+        element: <AdminRoutes> <ManageClass></ManageClass></AdminRoutes>,
       },
     ],
   },

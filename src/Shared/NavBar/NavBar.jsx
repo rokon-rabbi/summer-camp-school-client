@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../assets/logo.png";
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -10,14 +10,15 @@ import { FaSignInAlt } from "react-icons/fa";
 // import { AuthContext } from '../../Providers/AuthProvider';
 import useAuth from "../../Hooks/useAuth";
 import useCart from "../../Hooks/useCart";
+import useCheckRole from "../../Hooks/useCheckRole";
 
 const NavBar = () => {
   const [icon, setIcon] = useState(true);
-  const [cart,refetch] = useCart();
+  const [cart, refetch] = useCart();
   // console.log(cart)
   // const { user, logOut } =  useContext(AuthContext);
   const { user, logOut } = useAuth();
-
+  const [role,] = useCheckRole();
   const handleLogOut = () => {
     logOut()
       .then()
@@ -87,16 +88,21 @@ const NavBar = () => {
               Classes
             </NavLink>
           </li>
-          <li className="block md:hidden">
-            <Link className="absolute  md:-bottom-10 top-28 z-50 right-0" to="/dashboard/myselectedclass">
-              <button className="btn  gap-2">
-                <FaShoppingCart></FaShoppingCart>
-                <div className="badge  text-slate-950 badge-secondary ">
-                  +{cart?.length || 0}
-                </div>
-              </button>
-            </Link>
-          </li>
+          {role !== "admin" && (
+            <li className="block md:hidden">
+              <Link
+                className="absolute  md:-bottom-10 top-28 z-50 right-0"
+                to="/dashboard/myselectedclass"
+              >
+                <button className="btn  gap-2">
+                  <FaShoppingCart></FaShoppingCart>
+                  <div className="badge  text-slate-950 badge-secondary ">
+                    +{cart?.length || 0}
+                  </div>
+                </button>
+              </Link>
+            </li>
+          )}
 
           {user && (
             <>
@@ -137,18 +143,19 @@ const NavBar = () => {
               logout
               <FaSignInAlt className="inline ml-1 mb-1 font-bold" />
             </button>
-
-            <Link
-              className="absolute hidden md:block md:-bottom-10 top-28 z-50 right-0"
-              to="/dashboard/myselectedclass"
-            >
-              <button className="btn bg-slate-900  border-none  gap-2">
-                <FaShoppingCart className="text-3xl text-[#009688]" ></FaShoppingCart>
-                <div className="badge bg-slate-200 text-slate-950 badge-secondary ">
-                  +{cart?.length || 0}
-                </div>
-              </button>
-            </Link>
+            {role !== "admin" &&  (
+              <Link
+                className="absolute hidden md:block md:-bottom-10 top-28 z-50 right-0"
+                to="/dashboard/myselectedclass"
+              >
+                <button className="btn bg-slate-900  border-none  gap-2">
+                  <FaShoppingCart className="text-3xl text-[#009688]"></FaShoppingCart>
+                  <div className="badge bg-slate-200 text-slate-950 badge-secondary ">
+                    +{cart?.length || 0}
+                  </div>
+                </button>
+              </Link>
+            )}
           </div>
         ) : (
           <Link to={"/login"}>
